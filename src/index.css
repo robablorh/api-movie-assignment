@@ -1,0 +1,81 @@
+
+
+.linknav1 {
+    margin-left: 30px;
+    color:black
+}
+
+
+
+
+.pcont1 {
+
+    margin-top: 30px;
+    font-size: 12px;
+
+}
+
+.mid{
+     
+    border-left: 1px solid rgb(176, 164, 164);
+    border-right: 1px solid rgb(174, 161, 161);
+
+}
+.nbar{
+    background-color: white;
+    color: black;
+    
+}
+.h4cont1{
+    margin-bottom: 20px;
+}
+.img1{
+    height: 300px;
+    width: 710px;
+    border-radius: 15px;
+}
+.row2{
+    margin-top: 50px;
+}
+.homcont{
+
+    margin-top: 20px;
+
+
+}
+.s2pic{
+
+    height: 100px;
+    width: 80px;
+    margin-top: 12px;
+}
+
+.si2{
+    margin-top: 20px ;
+}
+
+.siform{
+
+    border-radius: 8px;
+    margin-top: 8px;
+}
+.s1{
+    position: static;
+}
+ .ulcont1 {
+
+    list-style-type: none;
+  ;
+}
+.ulcont1 a {
+
+    text-decoration: none;
+    color:black;
+    font-size: 14px;
+}
+
+.sip{
+  font-size: 10px;
+  margin-top: 15px;
+     
+}
