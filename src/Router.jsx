@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import Communities from "./paths/Communities"
@@ -12,6 +13,7 @@ import Settings from "./paths/Settings"
 import TvSeries from "./paths/TvSeries"
 import Animations from "./paths/Animations"
 import LogOut from "./paths/LogOut"
+import Movie from './paths/Movie'
 
 
 const Router = () => {
@@ -19,6 +21,7 @@ const Router = () => {
    
         <Routes>
             <Route path='/'            element={<Home/>}/>
+            <Route path='/:id'            element={<Movie />}/>
             <Route path='/communities'   element= {<Communities/>}/>
             <Route path='/discoveries' element={<Discoveries/>}/>
             <Route path='/comingsoon'  element={<ComingSoon/>}/>
@@ -30,10 +33,6 @@ const Router = () => {
             <Route Path='/tvseries'    element={<TvSeries/>}/>
             <Route path='/movies'      element= {<Movies/>}/>
             <Route path='/animations' element=  {<Animations/>}/>
-
-
-
-
         </Routes>
          
   

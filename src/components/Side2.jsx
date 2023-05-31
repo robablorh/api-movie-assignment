@@ -1,13 +1,22 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
 
-import pic3 from "../images/pic3.jpg"
 import pic4 from "../images/pic4.jpg"
-import pic5 from "../images/pic5.jpg"
-import pic6 from "../images/pic6.jpg"
 import {Container, Col, Row  } from "react-bootstrap"
-import Button from 'react-bootstrap/Button';
+import axios from "axios"
+import { useState } from "react"
 
 const Side2 = () => {
+  const [picks, setPick] = useState([])
+
+  const reviewPicks = async () => {
+    try {
+      //const response = await axios.get('https://api.nytimes.com/svc/movies/v2/reviews/picks.json?offset=5&api-key=KidWF1Qrlve8upGpm2HSLaF3udi3wPiG')
+      //console.log(response)
+    } catch (error) {
+      console.error(error)
+    }
+  } 
+
   return (
     <div>
        <form >
@@ -19,78 +28,12 @@ const Side2 = () => {
               <Col> <img src={pic4} className='s2pic'/> </Col>
               <Col>
               <p className='sip'>John Wick</p>
-              <p className='sip'>Action Horror</p>
-                
-              
               </Col>
              
           </Row>
-          <Row>
-              <Col><img src={pic3} className='s2pic'/></Col>
-              <Col>
-              <p className='sip'>John Wick</p>
-                 <p className='sip'>Action Horror</p>
-              </Col>
-              
-              
-          </Row>
-          <Row>
-              <Col><img src={pic4} className='s2pic'/></Col>
-              <Col>
-              <p className='sip'>John Wick</p>
-              <p className='sip'>Action Horror</p>
-              </Col>
-              
-              
-          </Row>
-          <div className="mb-2">
-          <Button variant="primary" size="sm">
-          See More
-        </Button>{' '}
-        </div>
-
-
-
-
        </Container>
 
-       <Container>
-          <Row>
-              <Col><img  src={pic4}  className='s2pic'/></Col>
-              <Col>
-                <p className='sip'>John Wick</p>
-                 <p className='sip'>Action Horror</p>
-              
-              </Col>
-              
-              
-          </Row>
-          <Row>
-              <Col><img src={pic5}   className='s2pic'/></Col>
-              <Col>
-              <p className='sip'>John Wick</p>
-                 <p className='sip'>Action Horror</p>
-              </Col>
-              
-              
-          </Row>
-          <Row>
-              <Col><img src={pic3} className='s2pic'/></Col>
-              <Col>
-              <p className='sip'>John Wick</p>
-              <p className='sip'>Action Horror</p>
-              </Col>
-              
-              
-          </Row>
-          
-          <div className="mb-2">
-          <Button variant="primary" size="sm">
-          See More
-        </Button>{' '}
-        </div>
-
-       </Container>
+       
     </div>
   )
 }

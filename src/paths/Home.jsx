@@ -1,14 +1,31 @@
-import React from 'react'
-import pic1 from "../images/pic1.jpg"
-import pic3 from "../images/pic3.jpg"
-import pic4 from "../images/pic4.jpg"
-import pic5 from "../images/pic5.jpg"
-import pic6 from "../images/pic6.jpg"
+/* eslint-disable react/jsx-key */
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from 'react'
 import {Container, Col, Row} from "react-bootstrap"
-import Card from 'react-bootstrap/Card';
+import axios from "axios"
+import pic1 from "../images/pic1.jpg"
+import {Link} from "react-router-dom"
+
 
 
 const Home = () => {
+
+  const [movies, setMovies] = useState([]);
+   
+  const getMovies = async () => {
+    try {
+      const response = await axios.get("https://api.nytimes.com/svc/movies/v2/reviews/all.json?offset=1&api-key=XxvU9c516NzTgLc50XT0UPHNqfi23RIX");
+      const data  = response.data.results;
+      setMovies(data)
+    } catch (error) {
+      console.error(error)
+    }
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, [movies]);
+   
   return (
 
     <div>
@@ -25,350 +42,23 @@ const Home = () => {
 
       
        <Container className='homcont'>
-      <Row>
-        <Col>
-          <h5>Best Artists</h5>
+      <Row >
+          {
+            movies.map((movie) => {
+              return (
+                     <Col key={movie.display_title}>
+                          <Link to={`/${movie.display_title}`}> <img src={movie.multimedia.src} alt={movie.display_title}/></Link>
+                           <p>{movie.display_title}</p>
+                     </Col>
+              )
+            })
+          }
 
-          </Col>
+          
       
        </Row>
        </Container>
 
-
-
-
-       <Container className='row2' >
-       <Row >
-           <Col>
-        
-                <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic3} />
-                
-                    
-                   
-                </Card>
-            
-           
-           </Col>
-
-           <Col>
-
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic4}  />
-                  
-                </Card>
-           
-           
-           
-           </Col>
-
-           <Col>
-
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic5}  />
-           
-                    
-                </Card>
-           
-           
-           
-           </Col>
-
-           <Col>
-           
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic6}  />
-                  
-                </Card>
-           
-           
-           </Col>
-
-
-
-
-       </Row>
-
-       
-    </Container>
-
-      
-    <Container className='homcont'>
-      <Row>
-        <Col>
-          <h5>Continue Watching</h5>
-
-          </Col>
-      
-       </Row>
-       </Container>
-
-
-
-
-       <Container className='row2' >
-       <Row >
-           <Col>
-        
-                <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic3} />
-                
-                    
-                   
-                </Card>
-            
-           
-           </Col>
-
-           <Col>
-
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic4}  />
-                  
-                </Card>
-           
-           
-           
-           </Col>
-
-           <Col>
-
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic5}  />
-           
-                    
-                </Card>
-           
-           
-           
-           </Col>
-
-           <Col>
-           
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic6}  />
-                  
-                </Card>
-           
-           
-           </Col>
-
-
-
-
-       </Row>
-
-       
-    </Container>
-
-     
-    <Container className='homcont'>
-      <Row>
-        <Col>
-          <h5>Horror Movies</h5>
-
-          </Col>
-      
-       </Row>
-       </Container>
-
-
-
-
-       <Container className='row2' >
-       <Row >
-           <Col>
-        
-                <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic3} />
-                
-                    
-                   
-                </Card>
-            
-           
-           </Col>
-
-           <Col>
-
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic4}  />
-                  
-                </Card>
-           
-           
-           
-           </Col>
-
-           <Col>
-
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic5}  />
-           
-                    
-                </Card>
-           
-           
-           
-           </Col>
-
-           <Col>
-           
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic6}  />
-                  
-                </Card>
-           
-           
-           </Col>
-
-
-
-
-       </Row>
-
-       
-    </Container>
-
-
-    
-    <Container className='homcont'>
-      <Row>
-        <Col>
-          <h5>Women Lead Movies</h5>
-
-          </Col>
-      
-       </Row>
-       </Container>
-
-
-
-
-       <Container className='row2' >
-       <Row >
-           <Col>
-        
-                <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic3} />
-                
-                    
-                   
-                </Card>
-            
-           
-           </Col>
-
-           <Col>
-
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic4}  />
-                  
-                </Card>
-           
-           
-           
-           </Col>
-
-           <Col>
-
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic5}  />
-           
-                    
-                </Card>
-           
-           
-           
-           </Col>
-
-           <Col>
-           
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic6}  />
-                  
-                </Card>
-           
-           
-           </Col>
-
-
-
-
-       </Row>
-
-       
-    </Container>
-
-
-    
-    <Container className='homcont'>
-      <Row>
-        <Col>
-          <h5>African Movies</h5>
-
-          </Col>
-      
-       </Row>
-       </Container>
-
-
-
-
-       <Container className='row2' >
-       <Row >
-           <Col>
-        
-                <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic3} />
-                
-                    
-                   
-                </Card>
-            
-           
-           </Col>
-
-           <Col>
-
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic4}  />
-                  
-                </Card>
-           
-           
-           
-           </Col>
-
-           <Col>
-
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic5}  />
-           
-                    
-                </Card>
-           
-           
-           
-           </Col>
-
-           <Col>
-           
-           <Card style={{ width: '8rem' }}>
-                  <Card.Img variant="top" src={pic6}  />
-                  
-                </Card>
-           
-           
-           </Col>
-
-
-
-
-       </Row>
-
-       
-    </Container>
 
     </div>
 
