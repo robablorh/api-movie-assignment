@@ -10,7 +10,7 @@ const Movie = () => {
 
     const movieDetail = async () => {
         try {
-          const response = await axios.get(`https://api.nytimes.com/svc/movies/v2/reviews/all.json?offset=20&api-key=XxvU9c516NzTgLc50XT0UPHNqfi23RIX`);
+          const response = await axios.get(`https://api.nytimes.com/svc/movies/v2/reviews/all.json?offset=20&api-key=NjVragdjYBZelPOCtAeJgpQCcD5fgvWz`);
           //console.log(response.data.results);
           setMovie(response.data && response.data.results);
         } catch (error) {
